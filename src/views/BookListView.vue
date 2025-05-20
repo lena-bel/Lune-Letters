@@ -8,7 +8,7 @@ const error = ref(null)
 
 onMounted(async () => {
   try {
-    const response = await fetch('http://localhost:3000/books')
+    const response = await fetch('http://localhost:3000/books?perPage=50')
     if (!response.ok) throw new Error('Network response was not ok')
     const data = await response.json()
     books.value = data
@@ -18,6 +18,7 @@ onMounted(async () => {
     isLoading.value = false
   }
 })
+console.log(books.value)
 </script>
 <template>
    <div class="container">
